@@ -6,15 +6,24 @@ class DMX {
   
   private $status=array();
   
+  private $curl;
+  
   public function DMX(){
     
     for($i=0;$i<512;$i++) {
       $this->status[$i]=0;
     }
+    
+    
+    $this->curl = curl_init();
   }
   
   function addDevice($device) {
     $this->devices[]=$device;
+  }
+  
+  function getDevices(){
+    return $this->devices;
   }
   
   function render(){
@@ -28,20 +37,18 @@ class DMX {
   
   function send(){
     
-    //var_dump($this->status);
-    $url = 'http://151.217.34.32:9090/set_dmx';
-    $data = array('u' => '1', 'd' => implode(",",$this->status));
-    //var_dump($data);
+    $url = str_replace( "&amp;", "&", urldecode(trim("http://151.217.34.32:9090/set_dmx")) );
     
-    // use key 'http' even if you send the request to https://...
-    $options = array(
-      'http' => array(
-        'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
-        'method'  => 'POST',
-        'content' => http_build_query($data),
-      ),
-    );
-    $context  = stream_context_create($options);
-    $result = file_get_contents($url, false, $context);
+    $data = array('u' => '1', 'd' => implode(",",$this->status));
+    
+    curl_setopt($this->curl, CURLOPT_URL, $url); 
+    curl_setopt($this->curl, CURLOPT_HTTPHEADER, array(
+        'Connection: Keep-Alive',
+        'Keep-Alive: 300'
+    ));
+    curl_setopt($this->curl,CURLOPT_POST,true); 
+    curl_setopt($this->curl,CURLOPT_POSTFIELDS,$data); 
+    
+    $test=curl_exec($this->curl);
   }
 }
