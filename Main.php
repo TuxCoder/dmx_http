@@ -5,6 +5,7 @@ require "MorseCode.php";
 require "ProgMorse.php";
 require "ProgRand.php";
 require "ProgRunLight.php";
+require "ProgCounter.php";
 
 class Main {
   private $dmx;
@@ -24,8 +25,9 @@ class Main {
     $this->dmx->addDevice($this->spots[4]);
     
     //$prog=new ProgMorse($this->dmx,"beer");
-    $prog=new ProgRand($this->dmx);
+    //$prog=new ProgRand($this->dmx);
     //$prog=new ProgRunLight($this->dmx);
+    $prog=new ProgCounter($this->dmx);
     $prog->run();
   }
   
