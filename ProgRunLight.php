@@ -21,9 +21,8 @@ class ProgRunLight {
         $this->spots[$i]->setRGB($val,$val,$val);
       }
       
-      $this->dmx->render();
       $this->dmx->send();
-      $x+=0.5;
+      $x+=0.2;
       usleep(30000);
     }
   }

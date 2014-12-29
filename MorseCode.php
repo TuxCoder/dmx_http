@@ -36,6 +36,8 @@ class MorseCode {
     foreach(str_split($string) as $char) {
       if(isset(self::$table[$char]))
         $out.=self::$table[$char];
+      else
+        $out.=$char;
     }
     return $out;
   }

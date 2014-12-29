@@ -26,6 +26,7 @@ class DMX {
     return $this->devices;
   }
   
+  
   function render(){
     foreach($this->devices as $device) {
       $ch=$device->getChannels();
@@ -36,6 +37,11 @@ class DMX {
   }
   
   function send(){
+    $this->render();
+    $this->transmitt();
+  }
+  
+  function transmitt(){
     
     $url = str_replace( "&amp;", "&", urldecode(trim("http://151.217.34.32:9090/set_dmx")) );
     

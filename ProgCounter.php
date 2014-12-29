@@ -22,7 +22,6 @@ class ProgCounter {
         }
       }
       
-      $this->dmx->render();
       $this->dmx->send();
       $x+=1;
       usleep(1000000);

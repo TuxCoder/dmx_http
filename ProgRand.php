@@ -16,7 +16,6 @@ class ProgRand {
         $this->spots[$i]->setRGB(rand(0,MAX),rand(0,MAX),rand(0,MAX));
       }
       
-      $this->dmx->render();
       $this->dmx->send();
       usleep(300000);
     }

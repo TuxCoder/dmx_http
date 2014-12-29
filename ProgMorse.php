@@ -14,6 +14,7 @@ class ProgMorse {
   
   public function run(){
     while(1) {
+      var_dump(MorseCode::convert($this->msg));
       $this->morese(MorseCode::convert($this->msg));
     }
   }
@@ -31,11 +32,10 @@ class ProgMorse {
           $this->long($this->spots);
           break;
         case "_":
-          usleep(150000);
+          usleep(1500000);
         default:
       }
       
-      $this->dmx->render();
       $this->dmx->send();
     }
   }
@@ -44,13 +44,11 @@ class ProgMorse {
     foreach($spots as $spot) {
       $spot->setRGB($this->bright,$this->bright,0);
     }
-    $this->dmx->render();
     $this->dmx->send();
     usleep(450000); //light
     foreach($spots as $spot) {
       $spot->setRGB(0,0,0);
     }
-    $this->dmx->render();
     $this->dmx->send();
     usleep(150000); //dark
   }
@@ -59,13 +57,11 @@ class ProgMorse {
     foreach($spots as $spot) {
       $spot->setRGB(0,0,$this->bright);
     }
-    $this->dmx->render();
     $this->dmx->send();
     usleep(150000); //light
     foreach($spots as $spot) {
       $spot->setRGB(0,0,0);
     }
-    $this->dmx->render();
     $this->dmx->send();
     usleep(150000);//dark
   }
