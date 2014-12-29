@@ -16,6 +16,6 @@ class SignalRectangel implements Signal {
   public function getValues($x) {
     $x-=$this->startAt;
     $y= $x>=0&&$x<=$this->width?100:0;
-    return [$y*$this->wights[0],$y*$this->wights[1],$y*$this->wights[2],0,0];
+    return [$y*$this->wights[0],$y*$this->wights[1],$y*$this->wights[2],$this->wights[3],$this->wights[4]];
   }
 }

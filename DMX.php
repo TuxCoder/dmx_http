@@ -6,6 +6,8 @@ class DMX {
   
   private $status=array();
   
+  private $data_old=null;
+  
   private $curl;
   
   public function DMX(){
@@ -46,6 +48,11 @@ class DMX {
     $url = str_replace( "&amp;", "&", urldecode(trim("http://151.217.34.32:9090/set_dmx")) );
     
     $data = array('u' => '1', 'd' => implode(",",$this->status));
+    
+    if($this->data_old===$data) {
+        return;
+    }
+     $this->data_old=$data;
     
     curl_setopt($this->curl, CURLOPT_URL, $url); 
     curl_setopt($this->curl, CURLOPT_HTTPHEADER, array(
