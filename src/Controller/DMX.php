@@ -3,22 +3,40 @@ namespace DmxHttp\Controller;
 
 use DmxHttp\Device\Device;
 
-interface DMX {
+abstract class DMX {
 
 
   /**
    * @param Device $device
    * @return mixed
    */
-  public function addDevice(Device $device);
+  abstract public function addDevice(Device $device);
 
 
-  public function getDevices();
+  /**
+   * @return Device[]
+   */
+  abstract public function getDevices();
+
+  /**
+   * @return get the current values of the
+   */
+  protected function render(){
+    foreach($this->devices as $device) {
+      $ch=$device->getChannels();
+      for($i=0;$i<$device->getSize();$i++) {
+        $this->status[$i+$device->getStartChannel()-1]=$ch[$i];
+      }
+    }
+  }
+
   
-  
-  function render();
-  
-  function send();
-  
-  function transmit();
+  protected abstract function transmit();
+
+  public function send() {
+    $this->render();
+    $this->transmit();
+
+  }
+
 }

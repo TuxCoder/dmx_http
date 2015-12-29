@@ -6,7 +6,7 @@ use Hoa\Websocket\Client;
 use DmxHttp\Device\Device;
 use DmxHttp\Util\Logger;
 
-class DMXWebSocket implements  DMX{
+class DMXWebSocket extends  DMX{
 
   private $ws;
 
@@ -48,21 +48,7 @@ class DMXWebSocket implements  DMX{
     return $this->devices;
   }
   
-  
-  function render() {
-    foreach($this->devices as $device) {
-      $ch = $device->getChannels();
-      for ($i = 0; $i < $device->getSize(); $i++) {
-        $this->status[$i + $device->getStartChannel() - 1] = $ch[$i];
-      }
-    }
-  }
-  
-  function send() {
-    $this->render();
-    $this->transmit();
 
-  }
 
   private $oldStatus=[];
   function transmit() {

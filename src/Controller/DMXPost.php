@@ -4,7 +4,7 @@ namespace DmxHttp\Controller;
 use DmxHttp\Device\Device;
 use DmxHttp\Util\Logger;
 
-class DMXPost implements DMX{
+class DMXPost extends  DMX{
   
   private $devices=array();
   
