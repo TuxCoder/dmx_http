@@ -1,5 +1,5 @@
 <?php
-namespace DmxHttp;
+namespace DmxHttp\Signal;
 
 interface Signal {
 

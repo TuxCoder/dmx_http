@@ -1,7 +1,7 @@
 <?php
-namespace DmxHttp;
+namespace DmxHttp\Prog;
 
-class ProgRand {
+class Rand {
   private $dmx;
   private $spots;
   

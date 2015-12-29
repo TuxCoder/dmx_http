@@ -1,8 +1,10 @@
 <?php
-namespace DmxHttp;
+namespace DmxHttp\Controller;
 
 use Hoa\Socket;
 use Hoa\Websocket\Client;
+use DmxHttp\Device\Device;
+use DmxHttp\Util\Logger;
 
 class DMXWebSocket implements  DMX{
 

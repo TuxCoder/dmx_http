@@ -1,5 +1,5 @@
 <?php
-namespace DmxHttp;
+namespace DmxHttp\Signal;
 
 class SignalRandom implements Signal {
   

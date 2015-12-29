@@ -1,5 +1,5 @@
 <?php
-namespace DmxHttp;
+namespace DmxHttp\Device;
 
 class Spot implements Device {
   private $startChannel =0;

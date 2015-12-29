@@ -1,7 +1,7 @@
 <?php
-namespace DmxHttp;
+namespace DmxHttp\Prog;
 
-class ProgMorse {
+class Morse {
   private $dmx;
   private $spots;
   

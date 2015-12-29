@@ -1,12 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: norbert
- * Date: 12/29/15
- * Time: 8:42 PM
- */
-
-namespace DmxHttp;
+namespace DmxHttp\Device;
 
 
 class Scanner implements Device

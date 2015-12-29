@@ -1,5 +1,8 @@
 <?php
-namespace DmxHttp;
+namespace DmxHttp\Controller;
+
+use DmxHttp\Device\Device;
+use DmxHttp\Util\Logger;
 
 class DMXPost implements DMX{
   

@@ -1,5 +1,5 @@
 <?php
-namespace DmxHttp;
+namespace DmxHttp\Util;
 
 class ChannelArray {
     private $startChannel=1;

@@ -1,8 +1,8 @@
 <?php
-namespace DmxHttp;
+namespace DmxHttp\Prog;
 
 
-class ProgRamp {
+class Ramp {
   private $dmx;
   private $spots;
   

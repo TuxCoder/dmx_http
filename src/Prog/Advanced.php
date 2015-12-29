@@ -1,8 +1,8 @@
 <?php
-namespace DmxHttp;
+namespace DmxHttp\Prog;
 
 
-class ProgAdvanced {
+class Advanced {
   private $dmx;
 
   /**

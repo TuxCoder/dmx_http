@@ -1,5 +1,7 @@
 <?php
-namespace DmxHttp;
+namespace DmxHttp\Controller;
+
+use DmxHttp\Device\Device;
 
 interface DMX {
 

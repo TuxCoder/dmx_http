@@ -1,16 +1,16 @@
 <?php
 
-use DmxHttp\DMXWebSocket;
-use DmxHttp\Spot;
-use DmxHttp\ProgMorse;
-use DmxHttp\Scanner;
+use DmxHttp\Controller\DMXWebSocket;
+use DmxHttp\Device\Spot;
+use DmxHttp\Prog\Morse;
+use DmxHttp\Device\Scanner;
 
 class Main {
   private $dmx;
   private $spots;
   
   function run(){
-    $this->dmx=new \DmxHttp\DMXPost();
+    $this->dmx=new \DmxHttp\Controller\DMXPost();
     $this->spots=array();
     $this->spots[]=new Spot(6);
     $this->spots[]=new Spot(12);
@@ -33,7 +33,7 @@ class Main {
     
     //$prog=new ProgMorse($this->dmx,"tardis__");
     //$prog=new ProgRand($this->dmx);
-    $prog=new DmxHttp\ProgRunLight($this->dmx);
+    $prog=new DmxHttp\Prog\RunLight($this->dmx);
     //$prog=new ProgCounter($this->dmx);
     //$prog=new ProgRamp($this->dmx);
     //$prog=new DmxHttp\ProgAdvanced($this->dmx);
