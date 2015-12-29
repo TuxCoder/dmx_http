@@ -1,7 +1,7 @@
 <?php
 namespace DmxHttp\Signal;
 
-class SignalRectangel implements Signal {
+class Rectangel implements Signal {
   
   private $startAt;
   private $width;

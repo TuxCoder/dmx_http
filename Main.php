@@ -33,10 +33,10 @@ class Main {
     
     //$prog=new ProgMorse($this->dmx,"tardis__");
     //$prog=new ProgRand($this->dmx);
-    $prog=new DmxHttp\Prog\RunLight($this->dmx);
+    //$prog=new DmxHttp\Prog\RunLight($this->dmx);
     //$prog=new ProgCounter($this->dmx);
     //$prog=new ProgRamp($this->dmx);
-    //$prog=new DmxHttp\ProgAdvanced($this->dmx);
+    $prog=new DmxHttp\Prog\Advanced($this->dmx);
     $prog->run();
   }
   

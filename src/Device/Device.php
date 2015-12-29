@@ -48,8 +48,8 @@ abstract class Device
         }
     }
 
-    public function addSignal(Signal $signal) {
-        $signals[]=$signal;
+    public function addSignal(Signal $signal,$offset=0) {
+        $this->signals[]=$signal;
     }
 
     /**
@@ -61,18 +61,9 @@ abstract class Device
 
         foreach($this->signals as $signal) {
             $values=$signal->getValues($x);
-            //var_dump($values);
-            $this->red    +=$values[0];
-            $this->green  +=$values[1];
-            $this->blue   +=$values[2];
-            $this->strabo +=$values[3];
-            $this->mode   +=$values[4];
+            foreach($values as $i=>$value) {
+                $this->channels[$i]+=$value;
+            }
         }
-
-        $this->red    =min(100,$this->red);
-        $this->green  =min(100,$this->green);
-        $this->blue   =min(100,$this->blue);
-        $this->strabo =min(100,$this->strabo);
-        $this->mode   =min(100,$this->mode);
     }
 }

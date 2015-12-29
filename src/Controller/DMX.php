@@ -39,4 +39,10 @@ abstract class DMX {
 
   }
 
+  public function calcAll($time){
+    foreach($this->getDevices() as $device) {
+      $device->calc($time);
+    }
+  }
+
 }

@@ -1,6 +1,7 @@
 <?php
 namespace DmxHttp\Signal;
 
+use DmxHttp\Util\Logger;
 
 class Ramp implements Signal {
   
@@ -16,7 +17,7 @@ class Ramp implements Signal {
     $this->startAt =$startAt;
     $this->width =$width;
     $this->wights=$wights;
-    Logger::getInstance("singal.ramp")->debug("created: ".$startAt.":".$width.":".$wights);
+    Logger::getInstance("singal.ramp")->debug("created: ".$startAt.":".$width.":[".implode(",",$wights)."]");
   }
   
   public function getValues($x) {

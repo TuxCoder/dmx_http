@@ -2,14 +2,26 @@
 namespace DmxHttp\Prog;
 
 
+use DmxHttp\Util\Logger;
+use DmxHttp\Controller\DMX;
+use DmxHttp\Device\Spot;
+use DmxHttp\Signal\Signal;
+
 class Ramp {
+  /**
+   * @var DMX
+   */
   private $dmx;
-  private $spots;
+
+  /**
+   * @var \DmxHttp\Device\Device[]
+   */
+  private $devices;
   
   
   public function __construct($dmx) {
     $this->dmx=$dmx;
-    $this->spots=$this->dmx->getDevices();
+    $this->devices=$this->dmx->getDevices();
   }
   
   public function run(){
@@ -26,10 +38,9 @@ class Ramp {
           $y=abs( 2*($_x/1-floor(1/2+$_x/1)))*100;
           
         $val=round($y);
-        
-        
-        var_dump($val);
-        $this->spots[$i]->setRGB($val,$val,$val);
+        if($this->devices[$i] instanceof Spot)  {
+          $this->devices[$i]->setRGB($val,$val,$val);
+        }
       }
       
       $this->dmx->send();

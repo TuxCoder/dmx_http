@@ -2,59 +2,36 @@
 namespace DmxHttp\Device;
 
 
-class Scanner implements Device
+class Scanner extends Device
 {
-    private $startChannel;
-
-    private $x=0;
-    private $y=0;
-    private $color=0;
-    private $mode=0;
-    private $status=true;
 
     public function __construct($channel)
     {
-        $this->startChannel=$channel;
+        parent::__construct($channel);
     }
 
-    public function getStartChannel()
-    {
-        return $this->startChannel;
+    public function setX($val){
+        $this->channels[0]=$val;
     }
 
-    /**
-     * @param $t    time in seconds
-     * @return mixed
-     *
-     * x
-     * y
-     * c color
-     * g mode
-     * s status <255 off, 255 on
-     */
-    public function calc($t)
-    {
-
+    public function setY($val){
+        $this->channels[1]=$val;
     }
 
-    public function getChannels()
-    {
-        return [$this->x,$this->y,$this->color,$this->mode,$this->status?255:0];
+    public function setColor($val){
+        $this->channels[2]=$val;
+    }
+
+    public function setMode($val){
+        $this->channels[3]=$val;
+    }
+
+    public function setStatus($val){
+        $this->channels[4]=$val?255:0; //<255 off, 255 on
     }
 
     function getSize(){
         return 5;
-    }
-
-    public function reset()
-    {
-        function reset(){
-            $this->x    =0;
-            $this->y  =0;
-            $this->color   =0;
-            $this->mode   =0;
-            $this->status =false;
-        }
     }
 
 }

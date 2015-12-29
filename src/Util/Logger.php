@@ -25,7 +25,7 @@ class Logger
             $level=\Monolog\Logger::DEBUG;
             switch($channel) {
                 case "dmx.http":
-                    $level=\Monolog\Logger::INFO;
+                    $level=\Monolog\Logger::DEBUG;
                     break;
             }
             self::$instances[$channel]->pushHandler(new StreamHandler('/dev/fd/0', $level));
