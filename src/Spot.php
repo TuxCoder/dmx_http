@@ -1,8 +1,7 @@
 <?php
+namespace DmxHttp;
 
-require_once "Signal.php";
-
-class Spot {
+class Spot implements Device {
   private $startChannel =0;
   private $red=0;
   private $green=0;
@@ -11,7 +10,7 @@ class Spot {
   private $mode=0;
   private $signals=array();
   
-  function Spot($startChannel){
+  function __construct($startChannel){
     $this->startChannel=$startChannel;
   }
   

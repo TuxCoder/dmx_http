@@ -1,6 +1,7 @@
 <?php
+namespace DmxHttp;
 
-class DMX {
+class DMXPost implements DMX{
   
   private $devices=array();
   
@@ -10,7 +11,7 @@ class DMX {
   
   private $curl;
   
-  public function DMX(){
+  public function __construct(){
     
     for($i=0;$i<512;$i++) {
       $this->status[$i]=0;
@@ -20,7 +21,7 @@ class DMX {
     $this->curl = curl_init();
   }
   
-  function addDevice($device) {
+  function addDevice(Device $device) {
     $this->devices[]=$device;
   }
   
@@ -40,12 +41,12 @@ class DMX {
   
   function send(){
     $this->render();
-    $this->transmitt();
+    $this->transmit();
   }
   
-  function transmitt(){
-    
-    $url = str_replace( "&amp;", "&", urldecode(trim("http://151.217.34.32:9090/set_dmx")) );
+  function transmit(){
+
+    $url = str_replace( "&amp;", "&", urldecode(trim("http://151.217.14.79:9090/set_dmx")) );
     
     $data = array('u' => '1', 'd' => implode(",",$this->status));
     
@@ -60,8 +61,9 @@ class DMX {
         'Keep-Alive: 300'
     ));
     curl_setopt($this->curl,CURLOPT_POST,true); 
-    curl_setopt($this->curl,CURLOPT_POSTFIELDS,$data); 
+    curl_setopt($this->curl,CURLOPT_POSTFIELDS,$data);
+    Logger::getInstance("dmx.http")->debug("send",[$data]);
     
-    $test=curl_exec($this->curl);
+    curl_exec($this->curl);
   }
 }

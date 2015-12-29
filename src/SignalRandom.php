@@ -1,5 +1,5 @@
 <?php
-require_once "Signal.php";
+namespace DmxHttp;
 
 class SignalRandom implements Signal {
   
@@ -7,7 +7,7 @@ class SignalRandom implements Signal {
   private $width;
   private $wights;
   
-  public function SignalRandom($startAt=0,$width=1,$wights=[1,1,1,1,1]) {
+  public function __construct($startAt=0,$width=1,$wights=[1,1,1,1,1]) {
     $this->startAt =$startAt;
     $this->width =$width;
     $this->wights=$wights;

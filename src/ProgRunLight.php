@@ -1,11 +1,12 @@
 <?php
+namespace DmxHttp;
 
 class ProgRunLight {
   private $dmx;
   private $spots;
   
   
-  public function ProgRunLight($dmx) {
+  public function __construct($dmx) {
     $this->dmx=$dmx;
     $this->spots=$this->dmx->getDevices();
   }
@@ -16,8 +17,7 @@ class ProgRunLight {
       for($i=0;$i<5;$i++) {
         $y=max(sin(($i+$x)*1.5),0);
         $val=round($y*100);
-        
-        var_dump($val);
+
         $this->spots[$i]->setRGB($val,$val,$val);
       }
       

@@ -1,10 +1,11 @@
 <?php
+namespace DmxHttp;
 
 class ProgRand {
   private $dmx;
   private $spots;
   
-  public function ProgRand($dmx) {
+  public function __construct($dmx) {
     $this->dmx=$dmx;
     $this->spots=$this->dmx->getDevices();
   }

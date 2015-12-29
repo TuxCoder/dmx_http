@@ -1,4 +1,5 @@
 <?php
+namespace DmxHttp;
 
 class ProgMorse {
   private $dmx;
@@ -6,7 +7,7 @@ class ProgMorse {
   
   private $msg=" ";
   
-  public function ProgMorse($dmx,$msg) {
+  public function __construct($dmx,$msg) {
     $this->msg=$msg;
     $this->dmx=$dmx;
     $this->spots=$this->dmx->getDevices();
@@ -14,7 +15,6 @@ class ProgMorse {
   
   public function run(){
     while(1) {
-      var_dump(MorseCode::convert($this->msg));
       $this->morese(MorseCode::convert($this->msg));
     }
   }
@@ -23,7 +23,6 @@ class ProgMorse {
   
   function morese($string) {
     foreach(str_split($string) as $command) {
-      var_dump($command);
       switch($command) {
         case ".":
           $this->short($this->spots);

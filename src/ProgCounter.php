@@ -1,11 +1,12 @@
 <?php
+namespace DmxHttp;
 
 class ProgCounter {
   private $dmx;
   private $spots;
   
   
-  public function ProgCounter($dmx) {
+  public function __construct($dmx) {
     $this->dmx=$dmx;
     $this->spots=$this->dmx->getDevices();
   }

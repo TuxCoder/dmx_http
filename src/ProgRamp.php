@@ -1,11 +1,13 @@
 <?php
+namespace DmxHttp;
+
 
 class ProgRamp {
   private $dmx;
   private $spots;
   
   
-  public function ProgRamp($dmx) {
+  public function __construct($dmx) {
     $this->dmx=$dmx;
     $this->spots=$this->dmx->getDevices();
   }

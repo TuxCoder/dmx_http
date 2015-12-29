@@ -1,14 +1,16 @@
 <?php
-require_once "SignalSawtooth.php";
-require_once "SignalRectangel.php";
-require_once "SignalRamp.php";
-require_once "SignalRandom.php";
+namespace DmxHttp;
+
 
 class ProgAdvanced {
   private $dmx;
+
+  /**
+   * @var Spot[]
+   */
   private $spots;
   
-  public function ProgAdvanced($dmx) {
+  public function __construct($dmx) {
     $this->dmx=$dmx;
     $this->spots=$this->dmx->getDevices();
   }
@@ -62,9 +64,9 @@ class ProgAdvanced {
       }
       
       $this->dmx->send();
-      usleep(10000);
+      usleep(100000);
       
-      $x+=0.05;
+      $x+=0.5;
       if($x>30)
         $x=$start;
     }

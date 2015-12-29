@@ -1,4 +1,5 @@
 <?php
+namespace DmxHttp;
 
 class MorseCode {
   static private $table =[
