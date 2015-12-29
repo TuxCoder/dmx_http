@@ -17,21 +17,21 @@ class Spot extends Device {
    * @param int $val 0-255
    */
   public function setRed($val){
-    $this->channels[0]=val;
+    $this->channels[0]=$val;
   }
 
   /**
    * @param int $val 0-255
    */
   public function setGreen($val){
-    $this->channels[1]=val;
+    $this->channels[1]=$val;
   }
 
   /**
    * @param int $val 0-255
    */
   public function setBlue($val){
-    $this->channels[2]=val;
+    $this->channels[2]=$val;
   }
 
   /**
