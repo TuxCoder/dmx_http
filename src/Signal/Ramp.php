@@ -2,7 +2,7 @@
 namespace DmxHttp\Signal;
 
 
-class SignalRamp implements Signal {
+class Ramp implements Signal {
   
   private $startAt;
   private $width;

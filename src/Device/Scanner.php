@@ -46,4 +46,15 @@ class Scanner implements Device
         return 5;
     }
 
+    public function reset()
+    {
+        function reset(){
+            $this->x    =0;
+            $this->y  =0;
+            $this->color   =0;
+            $this->mode   =0;
+            $this->status =false;
+        }
+    }
+
 }

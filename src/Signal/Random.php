@@ -1,7 +1,7 @@
 <?php
 namespace DmxHttp\Signal;
 
-class SignalRandom implements Signal {
+class Random implements Signal {
   
   private $startAt;
   private $width;

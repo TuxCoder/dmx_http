@@ -1,7 +1,7 @@
 <?php
 namespace DmxHttp\Signal;
 
-class SignalSawtooth implements Signal {
+class Sawtooth implements Signal {
   
   private $startAt;
   private $width;
