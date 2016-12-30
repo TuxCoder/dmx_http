@@ -15,12 +15,19 @@ class Rand
     function run()
     {
         define("MAX", 255);
+        $status=false;
         while (1) {
 
-            for ($i = 0; $i < 8; $i++) {
+            $status=$status?false:true;
+            for ($i = 0; $i < 5; $i++) {
                 $this->spots[$i]->reset();
-                $color = rand(0, 2);
                 $this->spots[$i]->setMode(255);
+                if($status) {
+                    $this->spots[$i]->setBlue(MAX);
+                }else {
+                    $this->spots[$i]->setRed(MAX);
+                }
+                /*$color = rand(0, 2);
                 switch ($color) {
                     case 0:
                         $this->spots[$i]->setRed(MAX);
@@ -31,7 +38,7 @@ class Rand
                     case 2:
                         $this->spots[$i]->setBlue(MAX);
                         break;
-                }
+                }*/
                 //$this->spots[$i]->setRGB(rand(0, MAX), rand(0, MAX), rand(0, MAX));
             }
 

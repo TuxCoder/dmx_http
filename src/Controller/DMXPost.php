@@ -15,6 +15,8 @@ class DMXPost extends DMX
 
     private $curl;
 
+    private $universe = '0';
+
     public function __construct()
     {
 
@@ -57,9 +59,9 @@ class DMXPost extends DMX
     {
 
         Logger::getInstance("dmx.http")->debug("prepare send");
-        $url = str_replace("&amp;", "&", urldecode(trim("http://151.217.14.79:9090/set_dmx")));
+        $url = str_replace("&amp;", "&", urldecode(trim("http://151.217.0.26:9090/set_dmx")));
 
-        $data = array('u' => '1', 'd' => implode(",", $this->status));
+        $data = array('u' => $this->universe, 'd' => implode(",", $this->status));
 
         if ($this->data_old === $data) {
             return;
